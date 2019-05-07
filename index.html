@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=divice-width,initial-scale=1">
+    <title>NewMusic</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="icon" href="icon/logo5.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <script src="script.js"></script>
+    <!-- <meta http-equiv="refresh" content="1;URL=index.html"> -->
+</head>
+
+<body>
+
+    <header>
+        <div id="icone">
+
+            <img href="#" src="icon/logo5.png">
+        </div>
+        <div id="escrito">
+            <h1>NewMusic</h1>
+            <div id="h1">NewMusic</div>
+        </div>
+
+        <p id="usuario"><i class="fas fa-home">Usuario</p></i>
+
+    </header>
+    <div id="creat">
+
+        <div id="playlist">
+
+            <p id="list"> Crie Sua Playlist<br><br>
+                Musicas:<br><br>
+
+                Neovaii - Take It Back <button id="musica1" class="addmusic" onclick="add1()"><i
+                        class="material-icons">add_circle_outline</i></button>
+                <br><br>
+                Stephen - Crossfire <button id="musica2" class="addmusic" onclick="add2()"><i
+                        class="material-icons">add_circle_outline</i></button>
+                <br><br>
+                AWAY & Midoca <button id="musica3" class="addmusic" onclick="add3()"><i
+                        class="material-icons">add_circle_outline</i></button>
+                <br><br>
+                Lux Holm & Glaceo <button id="musica4" class="addmusic" onclick="add4()"><i
+                        class="material-icons">add_circle_outline</i></button></p>
+        </div>
+
+    </div>
+
+
+
+
+    <main>
+
+        <div id="fundo">
+
+
+            <button id="b1" class="botao" onclick="turn()"><i
+                    class="material-icons fa-4x">arrow_back_ios</i></button><img id="imagem" src="fundo/imagem1.jpg ">
+
+            <button id="b2" class="botao" onclick="next()"><i
+                    class="material-icons fa-4x">arrow_forward_ios</i></button>
+
+
+        </div>
+
+        <div id="texto">
+            <p id="tocada">Neovaii - Take It Back</p>
+        </div>
+
+        <div id="btt1">
+
+            <button id="reload" class="botao" onclick="loop()"><i class="fas fa-redo fa-lg "></i></button>
+
+            <button id="volume-menos" class="botao" onclick="document.getElementById('audio').volume-=0.1"><i
+                    class="fas fa-volume-down fa-lg "></i></button>
+
+            <button id="volume-mais" class="botao" onclick="document.getElementById('audio').volume+=0.1"><i
+                    class="fas fa-volume-up fa-lg "></i></button>
+
+            <button id="stop" class="botao" onclick="stop()"><i class="fas fa-stop fa-lg"></i></button>
+
+            <button id="playlistadd" class="botao"><i class="material-icons">playlist_add_check</i></button>
+
+            <button id="playlistcreat" class="botao" onclick="creat()"><i class="material-icons">playlist_add</i></button>
+
+            <button id="aleatorio" class="botao"><i class="material-icons">shuffle</i></button>
+        </div>
+
+
+        <div id="container_audio">
+
+            <button id="playpause" class="botao" onclick="play()"><i
+                    class="material-icons fa-2x">play_arrow</i></button>
+
+            <div id="time1">0:00</div>
+
+            <div id="fix_bar">
+                <div id="progress_bar" onload="barraprogress()">
+                    <audio id="audio" src="Biblioteca/musica1.mp3" autoplay></audio>
+                </div>
+            </div>
+            <div id="time2" class="playback-bar__progress-time">3:00</div>
+        </div>
+
+
+    </main>
+
+    <div id="btt">
+
+        <button id="reload" class="botao"><i class="fas fa-redo fa-lg fa-2x"></i></button>
+
+        <button id="volume-menos" class="botao" onclick="document.getElementById('audio').volume-=0.1"><i
+                class="fas fa-volume-down fa-lg fa-2x"></i></button>
+
+        <button id="volume-mais" class="botao" onclick="document.getElementById('audio').volume+=0.1"><i
+                class="fas fa-volume-up fa-lg fa-2x"></i></button>
+
+        <button id="stop" class="botao" onclick="reload()"><i class="fas fa-stop fa-2x"></i></button>
+
+        <button id="playlistadd" class="botao"><i class="material-icons fa-2x">playlist_add_check</i></button>
+
+        <button id="playlistcreat" class="botao" onclick="creat()"><i
+                class="material-icons fa-2x">playlist_add</i></button>
+
+        <button id="aleatorio" class="botao"><i class="material-icons">shuffle</i></button>
+
+    </div>
+
+
+</body>
+
+
+</html>
