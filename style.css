@@ -80,7 +80,6 @@ main{
     justify-content: center;
     align-items: center;
     margin-top: 2%;
-    
 }
 #imagem{
     border-radius: 8px;
@@ -119,12 +118,11 @@ main{
     height: 30%;
     border-radius: 5px;
 }
-
 #progress_bar{
     margin: 0 2px 0 2px;
     background-color: white;
     border-radius: 5px;
-    width: 1%;
+    width: 0.2%;
     height: 80%;
 }
 #time2{
@@ -134,21 +132,12 @@ main{
     display: none;
      margin: 0 auto 0 auto;
     background-color: #1a0000;
-    width: 100%;
-    height: 60%;
+    width: 180px;
+    height: 100%;
     border: 1px solid black;
     border-radius: 7px;
     color: white;
-}
-
-#playlistcriadas{
-    background-color: #1a0000;
-    width: 40%;
-    height: 60%;
-    border: 1px solid black;
-    border-radius: 7px;
-    color: white;
-    
+    padding-right: 20px;
 }
 .addmusic{
     color: white;
@@ -160,11 +149,13 @@ main{
     outline: none;
 }
 #creat{
+    
     position: absolute;
     margin: 1% 1% 1% 1%;
-    height: 80%;
+    height: 60%;
+    width: 95%;
     z-index: 10;
-    display: flex;
+    display: none;
     flex-direction: row;
 } 
 #list{
@@ -179,7 +170,16 @@ main{
     width: 8%;
     padding: 0.2% 0% 0% 5%;
 }
-
+#playlists{
+    display: none;
+    margin: 0 auto 0 auto;
+   background-color: #1a0000;
+   width: 180px;
+   height: 88%;
+   border: 1px solid black;
+   border-radius: 7px;
+   color: white;
+}
 /* MOBILE */
 @media (min-width: 320px) and (max-width: 500px){
     #imagem{
@@ -241,5 +241,8 @@ main{
         padding-right: 30px;
         
     }
-    
+    #playlist{
+        width: 300px;
+        height: 300px;
+    }
 }

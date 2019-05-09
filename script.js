@@ -27,30 +27,21 @@ function next() {
     }
     troca(i)
 }
-
 // BOTAO PARA RETORNAR A MUSICA
-
 function turn() {
     i--
     if (i < 0) {
         i = 3;
         document.getElementById("playpause").innerHTML = playpause[0].src
+        var minunts = 0
     }
     if (i > 3) {
         i = 0
+        var minunts = 0
     }
     troca(i)
 }
-
-// BOTAO DE STOP
-
-function stop() {
-    document.getElementById("audio").load();
-    document.getElementById("audio").pause();
-}
-
 // PLAY E PAUSE
-
 var playpause = [{ src: "<i class='material-icons'>pause</i>" },
 { src: "<i class='material-icons'>play_arrow</i>" }]
 var f = 1
@@ -59,17 +50,25 @@ function play() {
     if (f % 2 == 0) {
         document.getElementById("playpause").innerHTML = playpause[0].src
         document.getElementById("audio").play()
-        playz =true;
+        conversao()
+        current()
     }
     else if (f % 2 != 0) {
         document.getElementById("playpause").innerHTML = playpause[1].src
         document.getElementById("audio").pause()
-        playz =false;
+        
     }
+}
+// BOTAO DE STOP
+function stop() {
+    document.getElementById("audio").load();
+    document.getElementById("audio").pause();
+    document.getElementById("playpause").innerHTML = playpause[1].src
+    f = 1
+    document.getElementById("progress_bar").style.width = 0+"%"
 }
 
 // COMANDO DE LOOP
-
 L = 1;
 function loop() {
     L++
@@ -78,7 +77,7 @@ function loop() {
         // document.getElementById("audio").load();
         document.getElementById('reload').style.backgroundColor = '#4b4b4b';
         document.getElementById('reload').style.borderRadius = '100px';
-
+        var minunts = 0
     }
     if (L % 2 != 0) {
         document.getElementById("audio").loop = false;
@@ -87,7 +86,6 @@ function loop() {
 
     }
 }
-
 // CRIAR PLAYLISTS
 m = 1
 function creat() {
@@ -98,49 +96,60 @@ function creat() {
     else if (m % 2 != 0) {
         document.getElementById('playlist').style.display = "none"
     }
-
-    //     var playlist = [];
-
-    //     function add1() {
-    //         playlist.push(musicas[0].src)
-    //         document.getElementById(playlistcriadas).innerHTML = "Neovaii - Take It Back <br> <br>"
-    //     }
-    //     function add2() {
-    //         playlist.push(musicas[0].src)
-    //         document.getElementById(playlistcriadas).innerHTML = "Stephen - Crossfire <br> <br>"
-    //     }
-    //     function add3() {
-    //         playlist.push(musicas[0].src)
-    //         document.getElementById(playlistcriadas).innerHTML = "AWAY & Midoca - Too Close - Take It Back <br> <br>"
-    //     }
-    //     function add4() {
-    //         playlist.push(musicas[0].src)
-    //         document.getElementById(playlistcriadas).innerHTML = " Lux Holm & Glaceo - Take You Away <br> <br>"
-    //     }
 }
-document.getElementById("progress_bar").addEventListener("load", barraprogress)
-function barraprogress() {
-    while (playz == true) {
-        
-        var vid = document.getElementById("audio")
-        time = (vid.currentTime)
-        console.log(time)
-        setTimeout(function () { document.getElementById("progress_bar").style.width = time + "%" }, 1000);
-      }
-
-
-//     for (time = 1; cent <= 100; cent++) {
-
-//         setTimeout(function () { document.getElementById("progress_bar").style.width = perc + "%" }, 1000);
-//     }
-// }
-
-
-    // var time = x 
-    // var porcent = x/100
-
-    // for (var i = 0; i <= 100; i++) {
-
-
-    // }
+g = 1
+function playcreats() {
+    g++
+    if (g % 2 == 0) {
+        document.getElementById('playlists').style.display = "flex"
+    }
+    else if (g % 2 != 0) {
+        document.getElementById('playlists').style.display = "none"
+    }
 }
+
+// BARRA DE PROGRESSO
+var audio = document.getElementById("audio");
+
+audio.addEventListener('timeupdate', function() {
+    var duration = audio.duration;
+    var current = audio.currentTime;
+    document.getElementById("progress_bar").style.width = ((current / duration) * 100)  + "%"
+});
+
+// TEMPO QUE FALTA PARA A MUSICA CORRER
+function conversao() {
+    setInterval(function() {
+
+        teste = (document.getElementById('audio').duration - document.getElementById('audio').currentTime);
+        var minutos = (Math.trunc(teste / 60));
+        var segundos = Math.trunc(teste % 60);
+        if(segundos < 10){
+            segundos = "0"+segundos
+        }
+        var xixi = (minutos + ":" + segundos);
+
+        document.getElementById('time2').innerHTML = xixi;
+    }, 1000);
+
+}
+var minunts = 0;
+// TEMPO QUE A MUSICA PERCORREU
+ function current(){
+    
+     setInterval(function(){
+    current = document.getElementById('audio').currentTime
+    time = (current % 60)
+    if (document.getElementById('audio').currentTime == 0){
+        minunts = 0
+    }
+    if (time >= 59){
+        minunts += 1;
+    }
+ 
+    console.log(minunts+":"+time)
+ },1000);
+
+ }
+
+ 

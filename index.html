@@ -12,7 +12,6 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="icon" href="icon/logo5.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <script src="script.js"></script>
     <!-- <meta http-equiv="refresh" content="1;URL=index.html"> -->
 </head>
 
@@ -31,7 +30,13 @@
         <p id="usuario"><i class="fas fa-home">Usuario</p></i>
 
     </header>
+
     <div id="creat">
+        
+            <div id="playlists">
+                    Sua Playlist
+        
+                </div>
 
         <div id="playlist">
 
@@ -50,6 +55,7 @@
                 Lux Holm & Glaceo <button id="musica4" class="addmusic" onclick="add4()"><i
                         class="material-icons">add_circle_outline</i></button></p>
         </div>
+
 
     </div>
 
@@ -86,7 +92,7 @@
 
             <button id="stop" class="botao" onclick="stop()"><i class="fas fa-stop fa-lg"></i></button>
 
-            <button id="playlistadd" class="botao"><i class="material-icons">playlist_add_check</i></button>
+            <button id="playlistadd" class="botao" onclick="playcreats()"><i class="material-icons">playlist_add_check</i></button>
 
             <button id="playlistcreat" class="botao" onclick="creat()"><i class="material-icons">playlist_add</i></button>
 
@@ -102,11 +108,11 @@
             <div id="time1">0:00</div>
 
             <div id="fix_bar">
-                <div id="progress_bar" onload="barraprogress()">
-                    <audio id="audio" src="Biblioteca/musica1.mp3" autoplay></audio>
+                <div id="progress_bar">
+                    <audio id="audio" src="Biblioteca/musica1.mp3" autoplay ></audio>
                 </div>
             </div>
-            <div id="time2" class="playback-bar__progress-time">3:00</div>
+            <div id="time2" class="playback-bar__progress-time">0:00</div>
         </div>
 
 
@@ -116,15 +122,15 @@
 
         <button id="reload" class="botao"><i class="fas fa-redo fa-lg fa-2x"></i></button>
 
-        <button id="volume-menos" class="botao" onclick="document.getElementById('audio').volume-=0.1"><i
+        <button id="volume-menos" class="botao" onclick="document.getElementById('audio').volume=0.1"><i
                 class="fas fa-volume-down fa-lg fa-2x"></i></button>
 
         <button id="volume-mais" class="botao" onclick="document.getElementById('audio').volume+=0.1"><i
                 class="fas fa-volume-up fa-lg fa-2x"></i></button>
 
-        <button id="stop" class="botao" onclick="reload()"><i class="fas fa-stop fa-2x"></i></button>
+        <button id="stop" class="botao" onclick="stop()"><i class="fas fa-stop fa-2x"></i></button>
 
-        <button id="playlistadd" class="botao"><i class="material-icons fa-2x">playlist_add_check</i></button>
+        <button id="playlistadd" class="botao" onclick="playcreats()"><i class="material-icons fa-2x">playlist_add_check</i></button>
 
         <button id="playlistcreat" class="botao" onclick="creat()"><i
                 class="material-icons fa-2x">playlist_add</i></button>
@@ -133,6 +139,7 @@
 
     </div>
 
+    <script src="script.js"></script>
 
 </body>
 
