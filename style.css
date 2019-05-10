@@ -57,17 +57,7 @@ main{
     position: relative;
     outline: none;
 }
-.btnj{
-    color: white;
-    cursor: pointer;
-    background-color:transparent;
-    height: 20px;
-    width: 31px;
-    margin-right: 15px; 
-    border: none;
-    position: relative;
-    outline: none;
-}
+
 .botao i{
     font-weight: 700;
     
@@ -187,6 +177,22 @@ main{
    border: 1px solid black;
    border-radius: 7px;
    color: white;
+   flex-direction: column;
+}
+#playlists button{
+    position: relative;
+    right: -10px;
+}
+#botao1{
+    color: orange;
+    cursor: pointer;
+    background-color:red;
+    height: 20px;
+    width: 40px;
+    margin-right: 15px; 
+    border: none;
+    position: relative;
+    outline: none;
 }
 /* MOBILE */
 @media (min-width: 320px) and (max-width: 500px){
