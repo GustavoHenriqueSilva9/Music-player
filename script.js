@@ -30,9 +30,11 @@ function next() {
 
     if (i < 0) {
         i = 3;
+       
     }
     if (i > 3) {
         i = 0
+      
     }
     troca(i)
 
@@ -207,5 +209,8 @@ function add4() {
     console.log(msc)
 }
 
-
+function ramdom(){
+    i = Math.floor(Math.random() * (3 + 0));
+    next()
+}
 
