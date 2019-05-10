@@ -1,3 +1,4 @@
+var minunts = 0;
 // Matriz com as Musicas e os Nomes Delas
 var musicas = [
     { name: "Neovaii - Take It Back", src: "Biblioteca/musica1.mp3", imagem: "fundo/imagem1.jpg" },
@@ -5,6 +6,7 @@ var musicas = [
     { name: "AWAY & Midoca ", src: "Biblioteca/musica3.mp3", imagem: "fundo/imagem3.png" },
     { name: "Lux Holm & Glaceo ", src: "Biblioteca/musica4.mp3", imagem: "fundo/imagem4.jpg" }
 ];
+var r =0;
 //FUNÇÃO PARA TROCAR A MUSICA OU VOLTAR
 function troca(number) {
     var audio = document.getElementById("audio")
@@ -12,32 +14,40 @@ function troca(number) {
     audio.autoplay
     document.getElementById("imagem").src = musicas[number].imagem;
     document.getElementById("tocada").innerHTML = musicas[number].name;
+    conversao()
+        current()
+    
 }
 // BOTAO PARA PROXIMA MUSICA
 var i = 0
+
 function next() {
+    
     i++
+    minunts = 0
     document.getElementById("playpause").innerHTML = playpause[0].src
     f = 0
-    if (i < 0) {
-        i = 3;
-    }
-    if (i > 3) {
-        i = 0
-    }
-    troca(i)
+   
+        if (i < 0) {
+            i = 3;
+        }
+        if (i > 3) {
+            i = 0
+        }
+        troca(i)
+    
 }
 // BOTAO PARA RETORNAR A MUSICA
 function turn() {
     i--
+    minunts = 0
     if (i < 0) {
         i = 3;
         document.getElementById("playpause").innerHTML = playpause[0].src
-        var minunts = 0
     }
     if (i > 3) {
         i = 0
-        var minunts = 0
+        
     }
     troca(i)
 }
@@ -70,20 +80,20 @@ function stop() {
 
 // COMANDO DE LOOP
 L = 1;
+var r=0;    
 function loop() {
     L++
     if (L % 2 == 0) {
         document.getElementById("audio").loop = true;
-        // document.getElementById("audio").load();
-        document.getElementById('reload').style.backgroundColor = '#4b4b4b';
+        document.getElementById('reload').style.backgroundColor = "#373737";
         document.getElementById('reload').style.borderRadius = '100px';
         var minunts = 0
+        r=1
     }
     if (L % 2 != 0) {
         document.getElementById("audio").loop = false;
-        // document.getElementById("audio").load();
         document.getElementById('reload').style.backgroundColor = 'transparent'
-
+        r=0;
     }
 }
 // CRIAR PLAYLISTS
@@ -107,7 +117,6 @@ function playcreats() {
         document.getElementById('playlists').style.display = "none"
     }
 }
-
 // BARRA DE PROGRESSO
 var audio = document.getElementById("audio");
 
@@ -133,23 +142,48 @@ function conversao() {
     }, 1000);
 
 }
-var minunts = 0;
+
 // TEMPO QUE A MUSICA PERCORREU
  function current(){
-    
-     setInterval(function(){
-    current = document.getElementById('audio').currentTime
-    time = (current % 60)
+     var time;
     if (document.getElementById('audio').currentTime == 0){
         minunts = 0
     }
+     setInterval(function(){
+    current = document.getElementById('audio').currentTime
+    time = current % 60
+    if(time < 9){
+        document.getElementById("time1").innerHTML = minunts+":0"+time.toFixed(0);
+    }else{
+    document.getElementById("time1").innerHTML = minunts+":"+time.toFixed(0);
+}
     if (time >= 59){
         minunts += 1;
     }
- 
-    console.log(minunts+":"+time)
+    if(r==0){
+        if(document.getElementById('audio').duration<=document.getElementById('audio').currentTime){
+            next()
+        }
+    }else{
+        minunts = 0
+        time =0;
+    }
+    
  },1000);
 
  }
+ function add1(){
+     document.getElementById("msc1").innerHTML = "Neovaii Take It Back <br>"
+
+ }
+ function add2(){
+    document.getElementById("msc2").innerHTML = "Stephen - Crossfire"
+}
+function add3(){
+    document.getElementById("msc3").innerHTML = "AWAY & Midoca"
+}
+function add4(){
+    document.getElementById("msc4").innerHTML = "Lux Holm & Glaceo"
+}
 
  

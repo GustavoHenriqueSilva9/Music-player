@@ -34,32 +34,38 @@
     <div id="creat">
         
             <div id="playlists">
-                    Sua Playlist
+                    Sua playlist
+                    <button class='botao'><i class='material-icons'>play_arrow</i></button>
+                    <br>
+                    <p id="msc1">asdsa</p>
+                    <br>
+                    <p id="msc2">adsasd</p>
+                    <br>
+                    <p id="msc3">dasdas</p>
+                    <br>
+                    <p id="msc4">dasads</p>
         
                 </div>
 
         <div id="playlist">
 
-            <p id="list"> Crie Sua Playlist<br><br>
-                Musicas:<br><br>
+            <p id="list"> Crie Sua Playlist, Musicas:<br>
 
-                Neovaii - Take It Back <button id="musica1" class="addmusic" onclick="add1()"><i
+                Neovaii Take It Back <button id="musica1" class="addmusic" onclick="add1()"><i
                         class="material-icons">add_circle_outline</i></button>
-                <br><br>
+                <br>
                 Stephen - Crossfire <button id="musica2" class="addmusic" onclick="add2()"><i
                         class="material-icons">add_circle_outline</i></button>
-                <br><br>
+                <br>
                 AWAY & Midoca <button id="musica3" class="addmusic" onclick="add3()"><i
                         class="material-icons">add_circle_outline</i></button>
-                <br><br>
+                <br>
                 Lux Holm & Glaceo <button id="musica4" class="addmusic" onclick="add4()"><i
                         class="material-icons">add_circle_outline</i></button></p>
         </div>
 
 
     </div>
-
-
 
 
     <main>
@@ -120,7 +126,7 @@
 
     <div id="btt">
 
-        <button id="reload" class="botao"><i class="fas fa-redo fa-lg fa-2x"></i></button>
+        <button id="reload" class="botao" onclick="loop()" ><i class="fas fa-redo fa-lg fa-2x"></i></button>
 
         <button id="volume-menos" class="botao" onclick="document.getElementById('audio').volume=0.1"><i
                 class="fas fa-volume-down fa-lg fa-2x"></i></button>
